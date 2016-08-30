@@ -1,0 +1,34 @@
+1) /Users/cmdb/data/fastq $ mkdir qc_output
+/Users/cmdb/data/fastq $ Fastqc -o qc_output
+
+2) hisat2 -p 4 BDGP6 -U SRR072893.fastq -S table_of_hits.sam
+21892898 reads; of these:
+  21892898 (100.00%) were unpaired; of these:
+    4679237 (21.37%) aligned 0 times
+    14921924 (68.16%) aligned exactly 1 time
+    2291737 (10.47%) aligned >1 times
+78.63% overall alignment rate
+
+3) samtools sort table_of_hits.sam -O bam > bamoutput.bam
+samtools index bamoutput.bam
+
+4) stringtie bamoutput.bam -B -e -p 4 -G BDGP6.Ensembl.85.gtf -o finoutput.ctab
+  
+
+Advanced Answers:
+
+1)grep -v ^"@" BDGP6/table_of_hits.sam | less -S | cut -f 3 | grep -v ^"*" | sort | uniq -c >> day1-homework.txt
+
+3034736 2L
+3651096 2R
+3177846 3L
+4227156 3R
+212988 4
+3082372 X
+10604 Y
+39344 dmel_mitochondrion_genome
+10154 rDNA
+
+2) /Users/cmdb/data $ grep -v ^"@" BDGP6/table_of_hits.sam | less -S | cut -f 4 | grep -v ^"0"| sort | uniq -c | sort | tail -1
+
+2218 24903766
