@@ -1,0 +1,6 @@
+Where do the motifs tend to occur in the input sequences? 
+The motif “GCGCC” is found commonly at nts 4-8. “CCT” is common at nt 10-12 and “GTGG” at nt 14-17.
+
+Are there other factors that appear to bind nearby?
+There are three significant secondaries: MA0385.1 (SOK2),  MA0292.1 (ECM22), and  MA0355.1 (PHD1)
+
