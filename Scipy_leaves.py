@@ -18,7 +18,7 @@ for line in data.readlines()[1:]:
     fields [4] = float(fields[4])
     fields [5] = float(fields[5])
     fields [6] = float(fields[6])
-    l1.append(fields[1:6])
+    l1.append(fields[1:2])
 
 a = np.array(l1)
 
@@ -31,7 +31,7 @@ dendrogram(
             distance_sort='descending',
             show_leaf_counts=False
           )
-plt.savefig("dendrogram.png")
+plt.savefig("CFU_Poly_dendrogram.png")
 #plt.show()
 
 
